@@ -1,5 +1,4 @@
-import {ngmodule} from './bootstrap/ngmodule';
+// Apply some global configuration...
 
-ngmodule.config(() => {
-  'ngInject';
-});
+// If the user enters a URL that doesn't match any known URL (state), send them to `/`
+export const otherwiseConfigBlock = ['$urlRouterProvider', $urlRouterProvider => { $urlRouterProvider.otherwise("/courses"); }];

@@ -1,16 +1,18 @@
-import { ngmodule } from '../bootstrap/ngmodule';
+import { loadNg1Module, ngmodule } from '../bootstrap/ngmodule';
 
-import buttonEnrollCounterComponent from './button-enroll-counter/button-enroll-counter.component';
-import buttonLikeCounterComponent from './button-like-counter/button-like-counter.component';
+import appSideNav from './app-side-nav/app-side-nav.component';
+import appToolbar from './app-toolbar/app-toolbar.component';
 
-import searchBoxComponent from './search-box/search-box.component';
+import buttonEnrollCounter from './button-enroll-counter/button-enroll-counter.component';
+import buttonLikeCounter from './button-like-counter/button-like-counter.component';
 
-import totalEnrollCounterComponent from './total-enroll-counter/total-enroll-counter.component';
-import totalLikeCounterComponent from './total-like-counter/total-like-counter.component';
+import searchBox from './search-box/search-box.component';
+import totalEnrollCounter from './total-enroll-counter/total-enroll-counter.component';
+import totalLikeCounter from './total-like-counter/total-like-counter.component';
 
-ngmodule
-.component('buttonEnrollCounter', buttonEnrollCounterComponent)
-.component('buttonLikeCounter', buttonLikeCounterComponent)
-.component('searchBox', searchBoxComponent)
-.component('totalEnrollCounter', totalEnrollCounterComponent)
-.component('totalLikeCounter', totalLikeCounterComponent);
+const componentsModule = {
+  components: { appSideNav, appToolbar, buttonEnrollCounter, buttonLikeCounter, searchBox,
+    totalEnrollCounter, totalLikeCounter }
+};
+
+loadNg1Module(ngmodule, componentsModule);

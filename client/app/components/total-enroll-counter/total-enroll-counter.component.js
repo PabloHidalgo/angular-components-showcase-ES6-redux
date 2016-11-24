@@ -22,9 +22,7 @@ export class TotalEnrollCounterController {
   }
 
   calculateEnrollCounter(courses) {
-    return ( courses || [] ).filter(function(course) {
-      return course.enrolled;
-    }).length;
+    return ( courses || [] ).filter(course => course.enrolled).length;
   }
 }
 

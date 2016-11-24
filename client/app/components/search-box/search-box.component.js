@@ -15,14 +15,10 @@ export class SearchBoxController {
   }
 
   onSearch(value) {
-    console.log('$SearchBoxController::onSearch()');
+    console.log('SearchBoxController::onSearch()');
     console.log(value);
 
-    this.onChange({
-      $event: {
-        text: value
-      }
-    });
+    this.onChange({ $event: { text: value } });
   }
 }
 
@@ -30,7 +26,7 @@ export default {
   template,
   bindings: {
     //inputs
-    title: '<',
+    title: '@',
 
     //outputs
     onChange: '&'

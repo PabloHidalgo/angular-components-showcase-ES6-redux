@@ -1,0 +1,21 @@
+//@import "components/_time-line.scss";
+
+.md-icon-button.md-button {
+  width: auto !important;
+}
+
+img.md-card-image {
+  height: auto !important;
+}
+
+.toggle-action {
+  padding-left: 25px;
+}
+
+input, app, search-box {
+  width: 100%;
+}
+
+app-toolbar {
+  min-height: 64px;
+}

@@ -17,7 +17,7 @@ describe('Component: search-box', () => {
 
       scope = $rootScope.$new();
 
-      element = angular.element('<search-box on-change="search($event.text)" title="title"></search-box>');
+      element = angular.element('<search-box on-change="search($event.text)" title="{{title}}"></search-box>');
 
       $compile(element)(scope);
       $rootScope.$digest();
@@ -39,7 +39,7 @@ describe('Component: search-box', () => {
 
     scope.title = expected;
 
-    element = angular.element('<search-box title="title"></search-box>');
+    element = angular.element('<search-box title="{{title}}"></search-box>');
 
     $compile(element)(scope);
     $rootScope.$digest();

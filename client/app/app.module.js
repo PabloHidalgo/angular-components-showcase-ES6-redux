@@ -1,6 +1,13 @@
-import './app.config';
-import {ngmodule} from './bootstrap/ngmodule';
+import { loadNg1Module, ngmodule } from './bootstrap/ngmodule';
 
-import {appComponent} from './app.component';
+import { app } from './app.component';
+import appState from './app.states';
+import { otherwiseConfigBlock } from './app.config';
 
-ngmodule.component('app', appComponent);
+const appModule = {
+  components: { app },
+  states: [ appState ],
+  configBlocks: [otherwiseConfigBlock]
+};
+
+loadNg1Module(ngmodule, appModule);

@@ -22,9 +22,7 @@ export class TotalLikeCounterController {
   }
 
   calculateLikeCounter(courses) {
-    return ( courses || [] ).filter(function(course) {
-      return course.liked;
-    }).length;
+    return ( courses || [] ).filter(course => course.liked).length;
   }
 }
 

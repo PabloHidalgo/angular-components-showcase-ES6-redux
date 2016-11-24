@@ -7,33 +7,27 @@
  *
  * Point Webpack or SystemJS to this file.
  *
- * This module imports all the different parts of the application:
- * - 3rd party Libraries and angular1 module
- * - Services
- * - Components
+ * This module imports all the different parts of the application which registers them with angular.
  * - Submodules
- * - Top-level states
- * - UI-Router Transition Hooks
+ *   - States
+ *   - Components
+ *   - Directives
+ *   - Services
+ *   - Filters
+ *   - Run and Config blocks
+ *     - Transition Hooks
+ * - 3rd party Libraries and angular1 module
  */
 
-// Import the angular1 module
-import './ngmodule';
-
-// Import CSS (WebPack will inject it into the document)
-import 'angular-material/angular-material.css';
-import 'normalize.css';
-
-// Import the service that manages the user's application preferences, and the Authentication service
-//import '../services/appConfig';
-//import '../services/auth';
-
-// Import the fake REST APIs (for Contacts, Folders, Messages)
-// These register themselves as angular services
-//import '../services/dataSources';
-
-// Import the submodules that make up the main subsections of the application
-// Each submodule registers its own states/services/components
+ // import all the app sub modules
+ // Each module registers it states/services/components, with the `ngmodule`
 import '../app.module';
-
-// Import the components
 import '../components/components.module';
+import '../about/about.module';
+import '../courses/courses.module';
+import '../students/students.module';
+import '../teachers/teachers.module';
+
+ // Import CSS (SystemJS will inject it into the document)
+ import 'angular-material/angular-material.css';
+ import '../../assets/scss/angular-components-showcase.scss';
