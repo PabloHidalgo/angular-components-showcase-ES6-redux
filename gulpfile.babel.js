@@ -17,6 +17,7 @@ import webpackDevMiddelware from 'webpack-dev-middleware';
 import webpachHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
 import historyApiFallback   from 'connect-history-api-fallback';
+import jsonServerData       from './server/api/data';
 
 let root = 'client';
 
@@ -60,7 +61,7 @@ gulp.task('webpack', ['clean'], (cb) => {
 
 gulp.task('db', function () {
   jsonServer.start({
-    data: 'server/api/db.json'
+    data: jsonServerData()
   });
 });
 

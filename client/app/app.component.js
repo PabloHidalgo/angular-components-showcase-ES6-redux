@@ -16,14 +16,21 @@ const template = `
 `;
 
 class AppController {
-  constructor($rootScope) {
+  constructor($ngRedux, $rootScope, $scope, CoursesActions) {
     'ngInject';
 
     this.$rootScope = $rootScope;
+
+    const actions = Object.assign({}, CoursesActions);
+    let disconnect = $ngRedux.connect(this.mapStateToThis, actions)(this);
+    $scope.$on('$destroy', () => disconnect());
   }
 
   $onInit() {
+    //todo: export to json definition file
     this.data = this.getData();
+
+    this.loadCourses();
 
     this.$rootScope.$on('$stateChangeSuccess', this.stateChangeSuccessHandler.bind(this));
   }
@@ -34,6 +41,12 @@ class AppController {
 
   updateTitle(event, toState) {
     this.$rootScope.title = this.title = toState.resolve.title();
+  }
+
+  mapStateToThis(state) {
+    return {
+      courses: state.courses
+    };
   }
 
   getData() {
