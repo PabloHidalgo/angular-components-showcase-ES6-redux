@@ -16,7 +16,8 @@ const coursesTopFavouritesState = {
   parent: 'app',
   component: 'courses',
   resolve: {
-    title: () => 'COURSES TOP FAVOURITES'
+    title: () => 'COURSES TOP FAVOURITES',
+    type: () => 'top-favourites'
   }
 };
 
@@ -26,7 +27,8 @@ const coursesTopEnrollmentsState = {
   parent: 'app',
   component: 'courses',
   resolve: {
-    title: () => 'COURSES TOP ENROLLMENTS'
+    title: () => 'COURSES TOP ENROLLMENTS',
+    type: () => 'top-enrollments'
   }
 };
 
@@ -36,7 +38,8 @@ const coursesMyFavouritesState = {
   parent: 'app',
   component: 'courses',
   resolve: {
-    title: () => 'MY FAVOURITES COURSES'
+    title: () => 'MY FAVOURITES COURSES',
+    type: () => 'my-favourites'
   }
 };
 
@@ -46,7 +49,8 @@ const coursesMyEnrollmentsState = {
   parent: 'app',
   component: 'courses',
   resolve: {
-    title: () => 'COURSES I\'M ENROLLED IN'
+    title: () => 'COURSES I\'M ENROLLED IN',
+    type: () => 'my-enrollments'
   }
 };
 

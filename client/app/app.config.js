@@ -1,4 +1,4 @@
-import { rootReducer } from './redux/modules/reducer';
+import { rootReducer } from './reducers/root';
 
 import thunk from 'redux-thunk';
 

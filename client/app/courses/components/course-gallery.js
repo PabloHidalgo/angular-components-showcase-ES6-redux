@@ -26,8 +26,6 @@ class CourseGalleryController {
   }
 
   $onInit() {
-    this.courses = [];
-
     console.log('CourseGalleryController::$onInit');
   }
 };

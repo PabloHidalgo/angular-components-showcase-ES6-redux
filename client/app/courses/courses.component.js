@@ -1,3 +1,5 @@
+import { coursesSelector, topFavouriteCoursesSelector } from '../selectors/courses';
+
 const template = `
   <search-box
     ng-if='$ctrl.searchEnabled'
@@ -13,8 +15,11 @@ const template = `
 `;
 
 class CoursesController {
-  constructor() {
+  constructor($ngRedux, $scope) {
     'ngInject'
+
+    let disconnect = $ngRedux.connect(this.mapStateToThis(this.type))(this);
+    $scope.$on('$destroy', () => disconnect());
   }
 
   $onInit() {
@@ -29,13 +34,36 @@ class CoursesController {
 
     console.log('CourseGalleryController::search()');
   }
+
+  mapStateToThis(type) {
+    return function (state) { //<-- continuar por aquí
+      console.log('coursesSelector');
+
+      return {
+        courses: coursesSelector(state)
+      };
+    };
+  }
+}
+
+class TopFavouriteCoursesController extends CoursesController {
+  constructor($ngRedux, $scope) {
+    super($ngRedux, $scope);
+  }
+
+  mapStateToThis(state) {
+    return {
+      courses: topFavouriteCoursesSelector(state)
+    };
+  }
 }
 
 export default {
   bindings: {
     //inputs
     courses: '<',
-    searchEnabled: '<'
+    searchEnabled: '<',
+    type: '<'
 
     //outputs
   },

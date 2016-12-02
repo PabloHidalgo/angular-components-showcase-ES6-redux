@@ -4,7 +4,7 @@ import { app } from './app.component';
 import appState from './app.states';
 import * as config from './app.config';
 
-import { CoursesActions } from './redux/modules/courses';
+import { CoursesActions } from './actions/courses';
 
 const appModule = {
   states: [ appState ],
